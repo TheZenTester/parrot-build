@@ -3,7 +3,11 @@
   copy:
     src: "{{ role_path }}/files/.bashrc"
     dest: "{{ ansible_env.HOME }}"
-
+---
+- name: "Copy Bash Alises"
+  copy:
+    src: "{{ role_path }}/files/.bash_aliases"
+    dest: "{{ ansible_env.HOME }}"
 - name: "Ensure .bash_profile sources .bashrc inside tmux"
   lineinfile:
     path: "{{ ansible_env.HOME }}/.bash_profile"
