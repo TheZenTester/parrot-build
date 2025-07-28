@@ -1,0 +1,9 @@
+- name: "Install Sliver with l50 arsenal"
+  include_role:
+    name: l50.arsenal.sliver
+  tags: [sliver]
+  vars:
+    sliver_username: "zentester"
+    sliver_usergroup: "zentester"
+    sliver_setup_systemd: true
+    sliver_asdf_plugins: [{ name: golang, version: "1.20.7" }]
