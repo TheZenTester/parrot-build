@@ -14,7 +14,7 @@ Also slight difference in that this was tested on Parrot OS v6.4 Security Editio
 ansible-galaxy collection install community.docker --upgrade
 ```
 ----
-** Make sure to pip install ansible, apt has an older copy **
+~~** Make sure to pip install ansible, apt has an older copy **~~
 
 # Instructions
 * ~~Start with Parrot HTB Edition~~
