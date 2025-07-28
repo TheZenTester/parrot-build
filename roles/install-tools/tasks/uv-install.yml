@@ -1,0 +1,21 @@
+---
+# roles/install-tools/tasks/uv-install.yml
+
+- name: "Check if uv binary exists"
+  stat:
+    path: "{{ ansible_env.HOME }}/.local/bin/uv"
+  register: uv_binary
+
+- name: "Install uv via Astral installer script"
+  shell: "curl -LsSf https://astral.sh/uv/install.sh | sh"
+  args:
+    executable: "/bin/bash"
+    creates: "{{ ansible_env.HOME }}/local/bin/uv"
+  when: uv_binary.stat.exists == false
+- name: "Check if uv completion is present in .bashrc"
+  shell: "grep -q '_uv()' ~/.bashrc"
+  register: uv_completion_present
+  ignore_errors: true
+- name: "Configuring autocompletion for uv"
+  shell: "{{ ansible_env.HOME }}/.local/bin/uv --generate-shell-completion bash >> ~/.bashrc"
+  when: uv_completion_present.rc != 0

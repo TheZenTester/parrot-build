@@ -1,3 +1,10 @@
+# Zentester Tweaks
+Making a fork of ippsec's 
+
+# Summary of Changes
+* Install `uv` for Python package/environment/tool management
+* Install `python-tools` via `uv` (instead of `pipx`) 
+----
 ** Make sure to pip install ansible, apt has an older copy **
 
 # Instructions
