@@ -6,6 +6,14 @@
   loop:
     - { repo: "https://github.com/Flangvik/SharpCollection", location: "/opt/SharpCollection" }
     - { repo: "https://github.com/danielmiessler/SecLists", location: "/opt/SecLists" }
+    - { repo: "https://github.com/TheWover/donut",
+     location: "/opt/donut" }
+    - { repo: "https://github.com/CompassSecurity/bloodhoundce-resources",
+     location: "/opt/bloodhoundce-resources" }
+    - { repo: "https://github.com/KINGSABRI/MSI-AlwaysInstallElevated",
+     location: "/opt/MSI-AlwaysInstallElevated"}
+    - { repo: "https://github.com/ShutdownRepo/targetedKerberoast",
+     location: "/opt/targetedKerberoast"}
   become: true
   become_method: sudo
 
@@ -18,6 +26,7 @@
   loop:
     - { location: "/opt/SharpCollection" }
     - { location: "/opt/SecLists" }
+    - { location: "/opt/donut"}
   become: true
   become_method: sudo
 
