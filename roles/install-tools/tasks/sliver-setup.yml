@@ -7,3 +7,38 @@
     sliver_usergroup: "zentester"
     sliver_setup_systemd: true
     sliver_asdf_plugins: [{ name: golang, version: "1.20.7" }]
+
+- name: "Ensure sliver-server binary is owned by root"
+  ansible.builtin.file:
+    path: "/opt/sliver/sliver-server"
+    owner: root
+    group: root
+    mode: '0755'
+  become: true
+
+- name: "Set User=root in sliver.service"
+  ansible.builtin.lineinfile:
+    path: /etc/systemd/system/sliver.service
+    regexp: '^User='
+    line: 'User=root'
+    backrefs: yes
+  become: true
+
+- name: "Reload systemd to apply changes to sliver.service"
+  ansible.builtin.systemd:
+    daemon_reload: yes
+  become: true
+
+- name: "Regenerate operator config as root"
+  ansible.builtin.shell: |
+    /opt/sliver/sliver-server operator --name {{ sliver_username }} \
+      --lhost localhost \
+      --save /home/{{ sliver_username }}/.sliver-client/configs
+  args:
+    executable: /bin/bash
+  vars:
+    sliver_username: "zentester"
+  become: true
+  become_user: root
+  register: result
+  changed_when: "'saved' in result.stdout"
