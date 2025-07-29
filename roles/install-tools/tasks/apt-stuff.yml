@@ -50,6 +50,7 @@
       - ca-certificates
       - curl
       - gh
+      - metasploit-framework
     state: latest
   become: true
   become_method: sudo
