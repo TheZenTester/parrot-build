@@ -26,7 +26,10 @@
   loop:
     - { location: "/opt/SharpCollection" }
     - { location: "/opt/SecLists" }
-    - { location: "/opt/donut"}
+    - { location: "/opt/donut" }
+    - { location: "/opt/bloodhoundce-resources" }
+    - { location: "/opt/MSI-AlwaysInstallElevated" }
+    - { location: "/opt/targetedKerberoast" }
   become: true
   become_method: sudo
 
