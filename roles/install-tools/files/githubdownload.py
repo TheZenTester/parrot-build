@@ -82,7 +82,7 @@ def extract_tar(compressed_data, out_file):
         gzip_header = compressed_data.getvalue()[:10]
         if gzip_header.startswith(b"\x1f\x8b"):
             with gzip.open(compressed_data, "rb") as gz:
-                with tarfile.open(fileobj=gz, mode="r:gz") as tar:
+                with tarfile.open(fileobj=gz, mode="r:") as tar:
                     tar.extractall(path=out_file)    
                     return
         else:
