@@ -34,6 +34,9 @@
     - { repo: "carlospolop/PEASS-ng",  regex: "winPEASx64.exe", location: "/opt/peas" }
     - { repo: "WithSecureLabs/chainsaw",  regex: "chainsaw_all_", location: "/opt/" }
     - { repo: "BloodHoundAD/BloodHound", regex: "BloodHound-linux-x64.zip", location: "/opt/" }
+    - { repo: "nicocha30/ligolo-ng", regex: "ligolo-ng_agent_\d\.\d{1,2}\.\d{1,2}\_linux_amd64.tar.gz", location: "/opt/ligolo-ng/linux-agent", filename: "" }
+    - { repo: "nicocha30/ligolo-ng", regex: "ligolo-ng_proxy_\d\.\d{1,2}\.\d{1,2}\_linux_amd64.tar.gz", location: "/opt/ligolo-ng/proxyserver" }
+    - { repo: "nicocha30/ligolo-ng", regex: "ligolo-ng_agent_\d\.\d{1,2}\.\d{1,2}\_windows_amd64.zip", location: "/opt/ligolo-ng/win-agent" }
   async: 45
   poll: 0
   become: true
