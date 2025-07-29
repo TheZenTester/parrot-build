@@ -51,6 +51,7 @@
       - curl
       - gh
       - metasploit-framework
+      - libcom-err2=1.47.0-2+b2
     state: latest
   become: true
   become_method: sudo

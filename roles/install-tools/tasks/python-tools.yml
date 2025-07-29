@@ -8,6 +8,7 @@
       - { name: 'certipy-ad', url: 'git+https://github.com/ly4k/Certipy.git' }
       - { name: 'bloodhound-ce', url: 'git+https://github.com/dirkjanm/BloodHound.py.git@bloodhound-ce' }
       - { name: 'bloodyAD', url: 'git+https://github.com/CravateRouge/bloodyAD'}
+      - {name: 'ldeep', url: 'ldeep'} #installing via PyPI
 - name: "Ensure uv is installed"
   stat:
     path: "{{ uv_bin }}"
