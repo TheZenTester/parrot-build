@@ -9,6 +9,18 @@
   become: true
   become_method: sudo
 
+- name: "Set ownership of cloned repos to the low-priv user"
+  ansible.builtin.file:
+    path: "{{ item.location }}"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    recurse: true
+  loop:
+    - { location: "/opt/SharpCollection" }
+    - { location: "/opt/SecLists" }
+  become: true
+  become_method: sudo
+
 - name: Create temporary build directory
   ansible.builtin.tempfile:
     state: directory
